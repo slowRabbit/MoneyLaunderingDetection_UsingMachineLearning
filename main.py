@@ -5,12 +5,12 @@ app = Flask(__name__)
 allChatList = []
 allChatDictionary = {}
 
-@app.route('/moneyTracker', methods = ['GET'])
-def getMainPage():
-    return render_template("sample.html")
+@app.route('/mainAnalysis', methods = ['GET'])
+def getMainAnalysisPage():
+    return render_template("analysis.html")
 
 @app.route('/data', methods = ['GET'])
-def getData():
+def getData():  
     return render_template("data.html")
 
 if __name__=="__main__"  :
