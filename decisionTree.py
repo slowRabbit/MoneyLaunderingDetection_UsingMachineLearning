@@ -1,4 +1,8 @@
-import svm as sv
+import svm
+#ml1 = sv.MachineLearning()
+#print (svm.retData())
 
-print (sv.retData())
+
+def fnn():
+        return "hey"
 
