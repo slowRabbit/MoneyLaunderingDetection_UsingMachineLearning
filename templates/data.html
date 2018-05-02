@@ -33,6 +33,10 @@ h2 {
     text-align : center;
 }
 
+div.imageData{
+    
+}
+
 th.thh{
    background-color : #2196F3;
    color : white;
@@ -52,6 +56,8 @@ color:#757575;
 
 #tablee{
     margin-bottom: 50px;
+    margin-left : 50px;
+    margin-right: 50px;
 }
 
 </style>
@@ -87,106 +93,46 @@ color:#757575;
  -->
  
   <table class="w3-table-all w3-small" id="tablee">
-    <tr>
-      <th class="thh">Account type</th>
-      <th class="thh">Transaction type</th>
-      <th class="thh">Amount</th>
-      <th class="thh">Transaction Month</th>
-      <th class="thh">Transaction Timing</th>
-      <th class="thh">Location Risk</th>
-      <th class="thh">Average Transactions</th>
+    <tr>   
+    <th class="thh">time</th>
+    <th class="thh">type</th>
+    <th class="thh">amount</th>
+    <th class="thh">nameOrig</th>
+    <th class="thh">oldbalanceOrg</th>
+    <th class="thh">newbalanceOrig</th>
+    <th class="thh">nameDest</th>
+    <th class="thh">oldbalanceDest</th>
+    <th class="thh">newbalanceDest</th>
+    <th class="thh">isFraud</th>
+    <th class="thh">isFlaggedFraud</th>
+    </tr>
+    
+    
+<tr><<td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
+<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
+<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
 
-    </tr>
-    <tr>
-      <td>personal</td>
-      <td>transfer</td>
-      <td>1956.25</td>
-	<td>4</td>
-	<td>usual</td>
-	<td>high</td>
-	<td>15</td>
-    </tr>
-       <tr>
-      <td>govt</td>
-      <td>transfer</td>
-      <td>790890</td>
-	<td>6</td>
-	<td>unusual</td>
-	<td>low</td>
-	<td>50</td>
-    </tr>    
-	<tr>
-      <td>govt</td>
-      <td>debit</td>
-      <td>227712.2</td>
-	<td>8</td>
-	<td>unusual</td>
-	<td>high</td>	<td>36</td>
-    </tr>    
-	<tr>
-      <td>ngo</td>
-      <td>debit</td>
-      <td>9195.97</td>
-	<td>4</td>
-	<td>usual</td>
-	<td>low</td>
-	<td>8</td>
-    </tr>    <tr>
-      <td>ngo</td>
-      <td>payment</td>
-      <td>86086.38</td>
-	<td>4</td>
-	<td>unusual</td>
-	<td>high</td>
-	<td>53</td>
-    </tr>    <tr>
-      <td>private</td>
-      <td>cash-out</td>
-      <td>130086</td>
-	<td>7</td>
-	<td>usual</td>
-	<td>low</td>
-	<td>25</td>
-    </tr>    <tr>
-      <td>personal</td>
-      <td>cash-in</td>
-      <td>123987</td>
-	<td>5</td>
-	<td>unusual</td>
-	<td>high</td>
-	<td>21</td>
-    </tr>    <tr>
-      <td>govt</td>
-      <td>debit</td>
-      <td>12496</td>
-	<td>8</td>
-	<td>usual</td>
-	<td>low</td>
-	<td>25</td>
-    </tr>    <tr>
-      <td>corporate</td>
-      <td>debit</td>
-      <td>133079</td>
-	<td>1</td>
-	<td>unusual</td>
-	<td>high</td>
-	<td>25</td>
-    </tr>    <tr>
-      <td>personal</td>
-      <td>debit</td>
-      <td>1147313</td>
-	<td>3</td>
-	<td>usual</td>
-	<td>low</td>
-	<td>25</td>
-    </tr>
+    
+    
+    
   </table>
 
 </div>
 
-<div>
-    <img src="/media/cyris/Studies/cc.png" alt="Mountain View" width="500" height="377">
-
+<div class="imageData">
+    <center>
+    <img src="{{url_for('static', filename='cc.png')}}" />
+    </center>
 </div>
 
 </body>

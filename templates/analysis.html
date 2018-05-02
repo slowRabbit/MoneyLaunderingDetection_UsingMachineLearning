@@ -50,7 +50,7 @@
 
 
 div.heading {
-    margin-top: 40px;
+    margin-top: 100px;
     margin-bottom: 20px;
     color : white;
     font-family: Arial, Helvetica, sans-serif;
@@ -62,29 +62,29 @@ div.row{
 
     margin : 10px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 45px;
+    font-size: 35px;
 
 }
 
 div.title1{
 
-    margin-left : 150px;
+    margin-left : 100px;
     margin-top : 20px;
     margin-bottom : 10px;
     color : #039BE5;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 22px;
 
 }
 
 div.title12{
 
-    margin-left : 260px;
+    margin-left : 100px;
     margin-top : 20px;
     margin-bottom : 10px;
     color : #039BE5;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+    font-size: 22px;
 
 }
 
@@ -117,13 +117,13 @@ div.title4{
     margin: 0 auto; 
 }
 .loading {
-    margin-top: 10em;
+    margin-top: 10px;
     text-align: center;
     color: gray;
 }
 
 #statsid{
-    margin-top : 150px;
+    margin-top : 20px;
     margin-left : 40px;
     max-width : 1100px;
 }
@@ -142,15 +142,39 @@ div.title4{
       -->
      
       <div class="heading" align="center">
-       <button id="heading"> Money Tracker </Button>
+       <button id="heading" onclick="myFunction()"> Money Tracker </Button>
+       
+       <script>
+       
+        $(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Function 1 ");
+          //intialDataFetchML();
+        document.getElementById('c1').style.visibility = 'hidden';
+    });
+    
+       
+       function myFunction()
+       {
+           //console.log("hey");
+          //document.getElementById('c1').style.visibility = 'visible';
+          setTimeout(
+    function() {
+            document.getElementById('c1').style.visibility = 'visible';
+    }, 2000);
+       }
+       
+       </script>
+       
 	  </div>
 
       <!-- This div contains graphs for the comparison of both the approaches-->
-        <div class="comparision">
+        <div class="comparision" id="c1">
             <div class="row" style="width: 48%; float:left; height:600px">
             <canvas id="mlgraph"></canvas>
                 <div class="title1">
-                Machine Learning based system
+                Machine Learning based system,    Efficiency : 95.28%
                 </div>            
             <script>
                 var ctx = document.getElementById('mlgraph').getContext('2d');
@@ -264,7 +288,7 @@ div.title4{
         <div class="row" style="width: 48%; float:right; height:600px">
         <canvas id="rulebasedgraph"></canvas>    
                 <div class="title12">
-                Rule based system
+                Rule based system,    Efficiency : 56.70%
                 </div>            
              <script>
                  var ctx = document.getElementById('rulebasedgraph').getContext('2d');
@@ -349,15 +373,11 @@ div.title4{
     
       </div>
 
-    <div class="comparision"> 
+    <div class="comparision" id="c1"> 
     
     <div id="statsid"class="row" style="width: 48%; float:left; height:600px">
         
          <canvas id="statistics"></canvas>    
-
-<div class="title3" style="width: 35%; float:left;">
-                 # Money laundering case vs account types
-                </div> 
     </div>
     
     <script>	
@@ -473,11 +493,11 @@ div.title4{
     function colorr(value)
     {
         col = null;
-        if(value<10)
+        if(value<30)
         {
             col = "#4CAF50";
         }
-        else if (value >=10 && value <=40)
+        else if (value >=30 && value <=70)
         {
             col = "#FFC107";
         }
@@ -527,19 +547,5 @@ div.title4{
         }
     });
 </script>
-
- <div > 
-
-<div class="title3" style="width: 35%; float:left;">
-                 World wise alerts analysis
-                </div> 
-<div class="title4" style="width: 25%; float:right;">
-                .
-                </div> 
-    
-</div>	   
-    
-    
-
 	  
 </body>
