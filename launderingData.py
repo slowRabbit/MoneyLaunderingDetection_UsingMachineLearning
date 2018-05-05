@@ -2,10 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import random
+
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.model_selection import train_test_split
+
 from sklearn.preprocessing import StandardScaler
+
 from sklearn.svm import LinearSVC
+'''
 from imblearn.under_sampling import NearMiss
 from imblearn import over_sampling as os
 from imblearn.pipeline import make_pipeline
@@ -13,6 +17,9 @@ from imblearn.combine import SMOTETomek
 from imblearn.over_sampling import ADASYN
 from imblearn.under_sampling import ClusterCentroids
 from imblearn.over_sampling import RandomOverSampler
+
+from imblearn.metrics import classification_report_imbalanced
+'''
 
 
 random.seed(50)
@@ -31,47 +38,12 @@ sample_dataframe = dataset.sample(n=100000)
 X = sample_dataframe.iloc[:, :-1].values
 y = sample_dataframe.iloc[:, 7].values
 
-print(sample_dataframe.isFraud.value_counts())
+new_frame = sample_dataframe.loc[sample_dataframe['isFraud'] == 1]
+
+print("orignial data fraud cases ",sample_dataframe.isFraud.value_counts())# -*- coding: utf-8 -*-
+print("originaldata total cases",  len(sample_dataframe.index))
+print("new data fraud cases ", new_frame.isFraud.value_counts())
+print("new data total cases",len(new_frame.index))
 
 
-# Encoding categorical data
-labelencoder = LabelEncoder()
-X[:, 1] = labelencoder.fit_transform(X[:, 1])
-onehotencoder = OneHotEncoder(categorical_features = [1])
-X = onehotencoder.fit_transform(X).toarray()
-
-# Avoiding the Dummy Variable Trap
-X = X[:, 1:]
-
-
-# Splitting the dataset into the Training set and Test set
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
-X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
-
-counts = np.unique(y_train, return_counts=True)
-
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_val = sc.transform(X_val)
-X_test = sc.transform(X_test)
-print(counts)
-
-
-# Apply the sampling
-ada = ADASYN()
-X_resampled, y_resampled = ada.fit_sample(X_train, y_train)
-count = np.unique(y_resampled, return_counts=True)
-
-# Create a pipeline
-
-pipeline4 = make_pipeline(ADASYN(),LinearSVC(random_state=1))
-pipeline4.fit(X_train, y_train)
-print(count)
-
-predicted=pipeline4.predict(X_test)
-
-from sklearn.metrics import accuracy_score
-
-#y_test, pipeline4.predict(X_test))
-print("Accuracy :",accuracy_score(y_test, predicted))
+new_frame.to_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/moneyLaunderingCases.csv', sep=',')
