@@ -52,15 +52,15 @@ X = X[:, 1:]
 # Splitting the dataset into the Training set and Test set
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
-X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
+#X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
 
-counts = np.unique(y_train, return_counts=True)
+#counts = np.unique(y_train, return_counts=True)
 
-sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_val = sc.transform(X_val)
-X_test = sc.transform(X_test)
-print(counts)
+#sc = StandardScaler()
+#X_train = sc.fit_transform(X_train)
+#X_val = sc.transform(X_val)
+#X_test = sc.transform(X_test)
+#print(counts)
 
 
 # Apply the sampling
@@ -77,10 +77,10 @@ print(counts)
 #predicted=pipeline4.predict(X_test)
 
 feat_labels = ['step','type','amount','oldbalanceOrg','newbalanceOrig',
-               'oldbalanceDest','newbalanceDest','isFraud']
+               'oldbalanceDest','newbalanceDest']
 
 # Create a random forest classifier
-clf = RandomForestClassifier(n_estimators=100000, random_state=0, n_jobs=-1)
+clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1)
 
 # Train the classifier
 clf.fit(X_train, y_train)
