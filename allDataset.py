@@ -42,35 +42,23 @@ def giveNPDataforLaunderingAndNormalCases():
     
     laundering_data_frame = sample_dataframe.loc[sample_dataframe['isFraud'] == 1]
     normal_data_frame = sample_dataframe.loc[sample_dataframe['isFraud'] == 0]
+    normal_data_frame = normal_data_frame.loc[normal_data_frame['newbalanceOrig'] != 0.0 & normal_data_frame['oldbalanceDest'] != 0.0 & normal_data_frame['newbalanceDest'] != 0.0]
     
     #laundering_data_frame = laundering_data_frame.loc[:,1:3].values
     
     laundering_data_frame.drop(['isFraud'], axis = 1, inplace = True)
     normal_data_frame.drop(['isFraud'], axis = 1, inplace = True)
-    normal_data_frame = normal_data_frame[:200]
+    normal_data_frame = normal_data_frame[:500]
     
     
-    dataset2 = pd.read_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/launderingCases.csv')
-    sample_dataframe2 = dataset2.sample()
-    
-    np_launderingArray =  sample_dataframe2.values
-    np_normalArray = normal_data_frame.values
-    listl1 =[]
-    
-    for item in np_launderingArray:
-        #print("item :",item)
-        print("item :", item[0], ":",item[1], ":",item[2])
-        listl1.append(item)
     
     #print("Laundering data dataframe :")
     #print(sample_dataframe2)
     
     #print("Laundering data numpy array :")
     #print(listl1)
+    normal_data_frame.to_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/normalCases.csv', sep=',', index=False)
 
-    result = {"launderingCases": np_launderingArray, "normalCases": np_normalArray}
-    #return Response(json.dumps(result), mimetype='application/json')
-    #return make_response(dumps(np_launderingArray))
 
 giveNPDataforLaunderingAndNormalCases()
 

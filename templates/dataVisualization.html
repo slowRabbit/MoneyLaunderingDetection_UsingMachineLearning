@@ -259,7 +259,6 @@ function processData(allText) {
 
     for (var i=0; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
-        //if (data.length == headers.length) {
 
             var tarr = [];
             for (var j=0; j<data.length; j++) {
@@ -290,14 +289,24 @@ function processDataNew(allText2) {
 
     for (var i=0; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
-        //if (data.length == headers.length) {
-
+        
+           var v_zeroo =0;
             var tarr2 = [];
             for (var j=0; j<data.length; j++) {
+            if(parseInt(data[j])==0)
+            {
+                v_zeroo=1;
+            }
                 tarr2.push(parseInt(data[j]));
             }
+            if(v_zeroo==1)
+            {
+            //means a zero is found, dont push in lines
+            }
+            else
+            {
             lines2.push(tarr2);
-        //}
+            }
     }
     //console.debug(lines2);
      //alert(lines2);
@@ -374,7 +383,7 @@ var chart = new Highcharts.Chart({
        
         data: lines2 ,
         
-        color: '#FF00FF'
+        color: '#B2FF59'
             
         
     }

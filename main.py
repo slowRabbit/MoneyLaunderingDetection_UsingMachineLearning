@@ -28,11 +28,6 @@ def getMLData():
         return a
         #return sv.retData()
 
-@app.route('/dataset', methods  = ['GET'])
-def getLaunderingNormalData():
-        var = dataset.dataSetForRepresentation()
-        return var
-
 @app.route('/getdataML', methods  = ['GET'])
 def getGraphMLAnalysisData():
         a = sv.retData()
