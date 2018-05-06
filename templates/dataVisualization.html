@@ -244,7 +244,7 @@ Highcharts.setOptions(Highcharts.theme);
 $(document).ready(function() {
     $.ajax({
         type: "GET",
-        url: "{{url_for('static', filename='abc.csv')}}",
+        url: "{{url_for('static', filename='launderingCases.csv')}}",
         dataType: "text",
         success: function(data) {processData(data);}
      });
@@ -268,8 +268,39 @@ function processData(allText) {
             lines.push(tarr);
         //}
     }
-    console.debug(lines);
-     alert(lines);
+    //console.debug(lines);
+     //alert(lines);
+}
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{{url_for('static', filename='normalCases.csv')}}",
+        dataType: "text",
+        success: function(data) {processDataNew(data);}
+     });
+});
+
+var lines2 = [];
+
+function processDataNew(allText2) {
+    var allTextLines = allText2.split(/\r\n|\n/);
+    //var headers = allTextLines[0].split(',');
+    
+
+    for (var i=0; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        //if (data.length == headers.length) {
+
+            var tarr2 = [];
+            for (var j=0; j<data.length; j++) {
+                tarr2.push(parseInt(data[j]));
+            }
+            lines2.push(tarr2);
+        //}
+    }
+    //console.debug(lines2);
+     //alert(lines2);
 }
 
 //var liness = [[10,20,30],[20,30,40]];
@@ -311,17 +342,17 @@ var chart = new Highcharts.Chart({
     },
     yAxis: {
         min: 0,
-        max: 100,
+        max: 10000000,
         title: null
     },
     xAxis: {
         min: 0,
-        max: 100,
+        max: 10000000,
         gridLineWidth: 1
     },
     zAxis: {
         min: 0,
-        max: 100,
+        max: 10000000,
         showFirstLabel: false
     },
     legend: {
@@ -341,8 +372,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading2',
         colorByPoint: false,
        
-        data: [[90, 90, 90],
-            ],
+        data: lines2 ,
         
         color: '#FF00FF'
             

@@ -45,6 +45,6 @@ def getGraphRuleBaedAnalysisData():
         return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=8040, debug=True)# -*- coding: utf-8 -*-
+    app.run(port=9040, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 
