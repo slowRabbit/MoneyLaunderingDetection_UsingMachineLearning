@@ -6,7 +6,10 @@
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <style>
 
     #container {
@@ -22,7 +25,7 @@
 
 <body>
 
-    <div id="container" style="height: 600px;"></div>
+    <div id="container" style="width:900px ;height: 600px;"></div>
     
     <script>
     
@@ -238,6 +241,37 @@ Highcharts.theme = {
 Highcharts.setOptions(Highcharts.theme);
     
     
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{{url_for('static', filename='launderingCases.csv')}}",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+var lines = [];
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    
+
+    for (var i=1; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        if (data.length == headers.length) {
+
+            var tarr = [];
+            for (var j=0; j<headers.length; j++) {
+                tarr.push(headers[j]+":"+data[j]);
+            }
+            lines.push(tarr);
+        }
+    }
+    //console.debug(lines);
+     //alert(lines);
+}
+
 
 // Set up the chart
 var chart = new Highcharts.Chart({
@@ -293,12 +327,31 @@ var chart = new Highcharts.Chart({
     },
     series: [{
         name: 'Reading',
-        colorByPoint: true,
-        data: [{x:54.4,y:54.4,z:54.4,color:'#FF0000'},{x:4.4,y:4.4,z:4.4,color:'#FFFFFF'}]
+        colorByPoint: false,
        
-    }]
+        data: lines,
+        
+        color: '#FF0000'
+            
+        
+    },
+    {
+        name: 'Reading2',
+        colorByPoint: false,
+       
+        data: [[90, 90, 90],
+            ],
+        
+        color: '#FF00FF'
+            
+        
+    }
+    ]
 });
 
+/*
+data: [{x:54.4,y:54.4,z:54.4,color:'#FF0000'},{x:4.4,y:4.4,z:4.4,color:'#FFFFFF'}]
+*/
 
 // Add mouse and touch events for rotation
 (function (H) {
@@ -335,6 +388,37 @@ var chart = new Highcharts.Chart({
     H.addEvent(chart.container, 'touchstart', dragStart);
 }(Highcharts));
 
+
+
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{{url_for('static', filename='launderingCases.csv')}}",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    var lines = [];
+
+    for (var i=1; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        if (data.length == headers.length) {
+
+            var tarr = [];
+            for (var j=0; j<headers.length; j++) {
+                tarr.push(headers[j]+":"+data[j]);
+            }
+            lines.push(tarr);
+        }
+    }
+    //console.debug(lines);
+     alert(lines);
+}
 
     
     </script>

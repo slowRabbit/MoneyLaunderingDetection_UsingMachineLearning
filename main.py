@@ -17,6 +17,10 @@ def getMainAnalysisPage():
 def getData():  
     return render_template("data.html")
 
+@app.route('/visualization', methods = ['GET'])
+def getDataVisualization():  
+    return render_template("dataVisualization.html")
+
 @app.route('/ml', methods  = ['GET'])
 def getMLData():
         a = sv.retData()
@@ -35,6 +39,6 @@ def getGraphRuleBaedAnalysisData():
         return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=8040, debug=True)# -*- coding: utf-8 -*-
+    app.run(port=7080, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 
