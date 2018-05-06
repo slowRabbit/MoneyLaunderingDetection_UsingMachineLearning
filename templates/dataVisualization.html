@@ -244,7 +244,7 @@ Highcharts.setOptions(Highcharts.theme);
 $(document).ready(function() {
     $.ajax({
         type: "GET",
-        url: "{{url_for('static', filename='launderingCases.csv')}}",
+        url: "{{url_for('static', filename='abc.csv')}}",
         dataType: "text",
         success: function(data) {processData(data);}
      });
@@ -254,24 +254,26 @@ var lines = [];
 
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split(',');
+    //var headers = allTextLines[0].split(',');
     
 
-    for (var i=1; i<allTextLines.length; i++) {
+    for (var i=0; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
+        //if (data.length == headers.length) {
 
             var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
+            for (var j=0; j<data.length; j++) {
+                tarr.push(parseInt(data[j]));
             }
             lines.push(tarr);
-        }
+        //}
     }
-    //console.debug(lines);
-     //alert(lines);
+    console.debug(lines);
+     alert(lines);
 }
 
+//var liness = [[10,20,30],[20,30,40]];
+//console.debug(liness);
 
 // Set up the chart
 var chart = new Highcharts.Chart({
@@ -329,7 +331,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading',
         colorByPoint: false,
        
-        data: lines,
+        data: lines ,
         
         color: '#FF0000'
             
@@ -388,37 +390,6 @@ data: [{x:54.4,y:54.4,z:54.4,color:'#FF0000'},{x:4.4,y:4.4,z:4.4,color:'#FFFFFF'
     H.addEvent(chart.container, 'touchstart', dragStart);
 }(Highcharts));
 
-
-
-
-$(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "{{url_for('static', filename='launderingCases.csv')}}",
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
-});
-
-function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
-    var headers = allTextLines[0].split(',');
-    var lines = [];
-
-    for (var i=1; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
-
-            var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
-            }
-            lines.push(tarr);
-        }
-    }
-    //console.debug(lines);
-     alert(lines);
-}
 
     
     </script>

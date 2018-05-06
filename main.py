@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import svm as sv
 import decisionTree as dt
 from RuleBased import RuleBasedAlertGeneration
+import newDataset as dataset
 
 app = Flask(__name__)
 
@@ -27,6 +28,11 @@ def getMLData():
         return a
         #return sv.retData()
 
+@app.route('/dataset', methods  = ['GET'])
+def getLaunderingNormalData():
+        var = dataset.dataSetForRepresentation()
+        return var
+
 @app.route('/getdataML', methods  = ['GET'])
 def getGraphMLAnalysisData():
         a = sv.retData()
@@ -39,6 +45,6 @@ def getGraphRuleBaedAnalysisData():
         return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=7080, debug=True)# -*- coding: utf-8 -*-
+    app.run(port=8040, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 
