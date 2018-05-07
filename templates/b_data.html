@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<title>Data</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<style>
+
+    #container {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+    
+</style>
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+    #container1 { border:1px dotted blue; width: 700px; height: 475px; position: relative; }
+<!--	
+h1 {
+    background-color: #F44336;
+	color : white;
+	
+   
+} 
+h2 {
+    background-color: #2196F3;
+    color : white;
+    max-width : 400px; 
+    text-align : center;
+}-->
+div.imageData{
+    
+}
+th.thh{
+   background-color : #F44336;
+   color : white;
+}
+<!--div {
+    background-color: white;
+}-->
+p.indent{ padding-left: 4.8em }
+p.indent2{ padding-left: 9.8em }
+p {
+    background-color: light-green;
+}
+body{
+color:#757575;
+}
+<!--
+#tablee{
+    margin-bottom: 50px;
+    margin-left : 50px;
+    margin-right: 50px;
+}
+	-->
+</style>
+<!--
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+-->
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/overview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">OVERVIEW</a>
+	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">DATA</a>
+    <a href="C:\Users\prashant\Desktop\livedemo.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">LIVE DEMO</a>
+    <a href="C:\Users\prashant\Desktop\Analytics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ANALYTICS</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ABOUT US</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">OVERVIEW</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">LIVE DEMO</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">ANALYTICS</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <p class="w3-margin w3-jumbo">Data  Analysis</p>
+  
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird w3-margin">
+      <h1>SAMPLE VIEW OF TRANSACTIONS</h1>
+      <!-- <h5 class="w3-padding-32"></h5> -->
+ 
+  <table class="w3-table-all w3-small" >
+    <tr>   
+    <th class="thh">Time</th>
+    <th class="thh">Type</th>
+    <th class="thh">Amount</th>
+    <th class="thh">NameOrig</th>
+    <th class="thh">OldbalanceOrg</th>
+    <th class="thh">NewbalanceOrig</th>
+    <th class="thh">NameDest</th>
+    <th class="thh">OldbalanceDest</th>
+    <th class="thh">NewbalanceDest</th>
+    <th class="thh">IsFraud</th>
+    <th class="thh">IsFlaggedFraud</th>
+    </tr>
+    
+    
+<tr><td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
+<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
+<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+   
+  </table>
+
+      <p class="w3-text-black">So we are using the data having 11 parameters </p>
+      <p class="w3-text-black">By use of Machine Intelligence techniques,We have featured out three important parameters which helps to identify about the nature of transaction.</p>
+    </div>
+
+    <!--<div class="w3-third w3-center">
+      Image
+    </div> -->
+  </div>
+</div>
+
+<!-- Second Grid 
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird">
+      <h1>Our Objective</h1>
+      <h5 class="w3-padding-32">We are here to shoulder the responsibility to protect our bank from Regulatory,Reputational and Financial Risk and thus saves our bank from spending millions of dollars.We aims to monitor transactions effectively and thus detecting money laundering cases early.</h5>
+
+      <p class="w3-text-grey">Our tool goes through following stages:-Starting from Data Segmentation and Cleaning,then proceeding to Machine Learning and generating a model for classifying a case to be suspicious.</p>
+	  
+      <p class="w3-text-grey">Feature selection is also performed through use of Python algorithms to identify the important parameters which plays significant role for final decision.Features are also visualised through 3D Visualisation techniques. </p>
+	</div>
+  </div>
+</div>
+-->
+<div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-content">
+<div class="w3-twothird">
+	<h1><center>3D Data Visualisation using Imp Parameters</h1> </center>
+	</div>
+	</div>
+
+</div>
+
+ <!--
+<div class="w3-container">
+   
+   
+<center><h1 align="center">DATA GENERATION AND FEATURING </h1> </center>
+ 
+
+  <p class="indent">For Analysis Purposes,We have generated our data and simulated it as the real HSBC data after talking to various stakeholders<br/>
+	We have considered following parameters,<br/>
+	<p class="indent2">=>Account Type -- It shows the type of account of consumer<br/>
+			Values-	Personal,Corporate,Government,Private,NGO<br/></p>
+	<p class="indent2">=>Transaction Type --It reflects the mode of the transaction<br/>
+			Values- Payment,Debit,Transfer,Cash-in,Cash-out<br/></p>
+	<p class="indent2">=>Amount -- Value of the transaction Money<br/>
+			Values- 5000-50000<br/></p>
+	<p class="indent2">=>Month -- It shows the month of the transaction<br/>
+			Values- 1,2,3,4,5,6,7,8,9,10,11,12<br/></p>
+	<p class="indent2">=>Transaction Timing -- This reflects the period of transaction<br/>
+			Values- Usual,Unusual<br/></p>
+	<p class="indent2">=>Location Risk -- This parameter shows the risk of the geographical location where transaction takes place<br/>
+			Values-High,Medium,Low<br/></p>
+	<p class="indent2">=>Average Transactions -- This shows the average number of transactions<br/>
+			Values- 1-100<br/></p>
+<br/>
+</p>
+<center> <h2>SAMPLE DATA</h2> </center>
+ 
+ 
+  <table class="w3-table-all w3-small" id="tablee">
+    <tr>   
+    <th class="thh">time</th>
+    <th class="thh">type</th>
+    <th class="thh">amount</th>
+    <th class="thh">nameOrig</th>
+    <th class="thh">oldbalanceOrg</th>
+    <th class="thh">newbalanceOrig</th>
+    <th class="thh">nameDest</th>
+    <th class="thh">oldbalanceDest</th>
+    <th class="thh">newbalanceDest</th>
+    <th class="thh">isFraud</th>
+    <th class="thh">isFlaggedFraud</th>
+    </tr>
+    
+    
+<tr><<td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
+<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
+<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+
+    
+    
+    
+  </table>
+
+</div>
+-->
+
+
+<!-- Footer -->
+
+
+<div id="container" style="width:900px ;height: 600px;"></div>
+    
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ <p>Powered by <a href="https://www.hsbc.co.in" target="_blank">HSBC Technology India</a></p>
+</footer>
+    
+    <script>
+    
+    
+    'use strict';
+/* global document */
+// Load the fonts
+Highcharts.createElement('link', {
+    href: 'https://fonts.googleapis.com/css?family=Unica+One',
+    rel: 'stylesheet',
+    type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+Highcharts.theme = {
+    colors: ['#aaeeee','#ffffff' ],
+    chart: {
+        backgroundColor: {
+            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+            stops: [
+                [0, '#2a2a2b'],
+                [1, '#3e3e40']
+            ]
+        },
+        style: {
+            fontFamily: '\'Unica One\', sans-serif'
+        },
+        plotBorderColor: '#606063'
+    },
+    title: {
+        style: {
+            color: '#E0E0E3',
+            textTransform: 'uppercase',
+            fontSize: '20px'
+        }
+    },
+    subtitle: {
+        style: {
+            color: '#E0E0E3',
+            textTransform: 'uppercase'
+        }
+    },
+    xAxis: {
+        gridLineColor: '#707073',
+        labels: {
+            style: {
+                color: '#E0E0E3'
+            }
+        },
+        lineColor: '#707073',
+        minorGridLineColor: '#505053',
+        tickColor: '#707073',
+        title: {
+            style: {
+                color: '#A0A0A3'
+
+            }
+        }
+    },
+    yAxis: {
+        gridLineColor: '#707073',
+        labels: {
+            style: {
+                color: '#E0E0E3'
+            }
+        },
+        lineColor: '#707073',
+        minorGridLineColor: '#505053',
+        tickColor: '#707073',
+        tickWidth: 1,
+        title: {
+            style: {
+                color: '#A0A0A3'
+            }
+        }
+    },
+    tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        style: {
+            color: '#F0F0F0'
+        }
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                color: '#B0B0B3'
+            },
+            marker: {
+                lineColor: '#333'
+            }
+        },
+        boxplot: {
+            fillColor: '#505053'
+        },
+        candlestick: {
+            lineColor: 'white'
+        },
+        errorbar: {
+            color: 'white'
+        }
+    },
+    legend: {
+        itemStyle: {
+            color: '#E0E0E3'
+        },
+        itemHoverStyle: {
+            color: '#FFF'
+        },
+        itemHiddenStyle: {
+            color: '#606063'
+        }
+    },
+    credits: {
+        style: {
+            color: '#666'
+        }
+    },
+    labels: {
+        style: {
+            color: '#707073'
+        }
+    },
+
+    drilldown: {
+        activeAxisLabelStyle: {
+            color: '#F0F0F3'
+        },
+        activeDataLabelStyle: {
+            color: '#F0F0F3'
+        }
+    },
+
+    navigation: {
+        buttonOptions: {
+            symbolStroke: '#DDDDDD',
+            theme: {
+                fill: '#505053'
+            }
+        }
+    },
+
+    // scroll charts
+    rangeSelector: {
+        buttonTheme: {
+            fill: '#505053',
+            stroke: '#000000',
+            style: {
+                color: '#CCC'
+            },
+            states: {
+                hover: {
+                    fill: '#707073',
+                    stroke: '#000000',
+                    style: {
+                        color: 'white'
+                    }
+                },
+                select: {
+                    fill: '#000003',
+                    stroke: '#000000',
+                    style: {
+                        color: 'white'
+                    }
+                }
+            }
+        },
+        inputBoxBorderColor: '#505053',
+        inputStyle: {
+            backgroundColor: '#333',
+            color: 'silver'
+        },
+        labelStyle: {
+            color: 'silver'
+        }
+    },
+
+    navigator: {
+        handles: {
+            backgroundColor: '#666',
+            borderColor: '#AAA'
+        },
+        outlineColor: '#CCC',
+        maskFill: 'rgba(255,255,255,0.1)',
+        series: {
+            color: '#7798BF',
+            lineColor: '#A6C7ED'
+        },
+        xAxis: {
+            gridLineColor: '#505053'
+        }
+    },
+
+    scrollbar: {
+        barBackgroundColor: '#808083',
+        barBorderColor: '#808083',
+        buttonArrowColor: '#CCC',
+        buttonBackgroundColor: '#606063',
+        buttonBorderColor: '#606063',
+        rifleColor: '#FFF',
+        trackBackgroundColor: '#404043',
+        trackBorderColor: '#404043'
+    },
+
+    // special colors for some of the
+    legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+    background2: '#505053',
+    dataLabelsColor: '#B0B0B3',
+    textColor: '#C0C0C0',
+    contrastTextColor: '#F0F0F3',
+    maskColor: 'rgba(255,255,255,0.3)'
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+    
+    
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{{url_for('static', filename='launderingCases.csv')}}",
+        dataType: "text",
+        success: function(data) {processData(data);}
+     });
+});
+
+var lines = [];
+
+function processData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    //var headers = allTextLines[0].split(',');
+    
+
+    for (var i=0; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+
+            var tarr = [];
+            for (var j=0; j<data.length; j++) {
+                tarr.push(parseInt(data[j]));
+            }
+            lines.push(tarr);
+        //}
+    }
+    console.debug(lines);
+     //alert(lines);
+}
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "{{url_for('static', filename='normalCases.csv')}}",
+        dataType: "text",
+        success: function(data) {processDataNew(data);}
+     });
+});
+
+var lines2 = [];
+
+function processDataNew(allText2) {
+    var allTextLines = allText2.split(/\r\n|\n/);
+    //var headers = allTextLines[0].split(',');
+    
+
+    for (var i=0; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        
+           var v_zeroo =0;
+            var tarr2 = [];
+            for (var j=0; j<data.length; j++) {
+            if(parseInt(data[j])<500000)
+            {
+                v_zeroo=1;
+            }
+                tarr2.push(parseInt(data[j]));
+            }
+            if(v_zeroo==1)
+            {
+            //means a zero is found, dont push in lines
+            }
+            else
+            {
+            lines2.push(tarr2);
+            }
+    }
+    //console.debug(lines2);
+     //alert(lines2);
+}
+
+//var liness = [[10,20,30],[20,30,40]];
+//console.debug(liness);
+
+// Set up the chart
+var chart = new Highcharts.Chart({
+    chart: {
+        renderTo: 'container',
+        margin: 100,
+        type: 'scatter3d',
+        animation: false,
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            beta: 30,
+            depth: 250,
+            viewDistance: 5,
+            fitToPlot: false,
+            frame: {
+                bottom: { size: 1, color: 'rgba(0,0,0,0.02)' },
+                back: { size: 1, color: 'rgba(0,0,0,0.04)' },
+                side: { size: 1, color: 'rgba(0,0,0,0.06)' }
+            }
+        }
+    },
+    title: {
+        text: 'Draggable box'
+    },
+    subtitle: {
+        text: 'Click and drag the plot area to rotate in space'
+    },
+    plotOptions: {
+        scatter: {
+            width: 10,
+            height: 10,
+            depth: 10
+        }
+    },
+    yAxis: {
+        min: 0,
+        max: 10000000,
+        title: null
+    },
+    xAxis: {
+        min: 0,
+        max: 10000000,
+        gridLineWidth: 1
+    },
+    zAxis: {
+        min: 0,
+        max: 10000000,
+        showFirstLabel: false
+    },
+    legend: {
+        enabled: false
+    },
+    series: [{
+        name: 'Reading',
+        colorByPoint: false,
+       
+        data: lines ,
+        
+        color: '#FF0000'
+            
+        
+    },
+    {
+        name: 'Reading2',
+        colorByPoint: false,
+       
+        data: lines2 ,
+        
+        color: '#B2FF59'
+            
+        
+    }
+    ]
+});
+
+/*
+data: [{x:54.4,y:54.4,z:54.4,color:'#FF0000'},{x:4.4,y:4.4,z:4.4,color:'#FFFFFF'}]
+*/
+
+// Add mouse and touch events for rotation
+(function (H) {
+    function dragStart(eStart) {
+        eStart = chart.pointer.normalize(eStart);
+
+        var posX = eStart.chartX,
+            posY = eStart.chartY,
+            alpha = chart.options.chart.options3d.alpha,
+            beta = chart.options.chart.options3d.beta,
+            sensitivity = 5; // lower is more sensitive
+
+        function drag(e) {
+            // Get e.chartX and e.chartY
+            e = chart.pointer.normalize(e);
+
+            chart.update({
+                chart: {
+                    options3d: {
+                        alpha: alpha + (e.chartY - posY) / sensitivity,
+                        beta: beta + (posX - e.chartX) / sensitivity
+                    }
+                }
+            }, undefined, undefined, false);
+        }
+
+        chart.unbindDragMouse = H.addEvent(document, 'mousemove', drag);
+        chart.unbindDragTouch = H.addEvent(document, 'touchmove', drag);
+
+        H.addEvent(document, 'mouseup', chart.unbindDragMouse);
+        H.addEvent(document, 'touchend', chart.unbindDragTouch);
+    }
+    H.addEvent(chart.container, 'mousedown', dragStart);
+    H.addEvent(chart.container, 'touchstart', dragStart);
+}(Highcharts));
+
+
+    
+    </script>
+
+</body>
+</html>

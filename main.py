@@ -15,6 +15,10 @@ app = Flask(__name__)
 allChatList = []
 allChatDictionary = {}
 
+@app.route('/overview', methods = ['GET'])
+def getMainToolPage():  
+    return render_template("a_overView.html")
+
 @app.route('/mainAnalysis', methods = ['GET'])
 def getMainAnalysisPage():
     print ("The result is : ", sv.retData())
@@ -24,9 +28,13 @@ def getMainAnalysisPage():
 def getData():  
     return render_template("data.html")
 
+#@app.route('/visualization', methods = ['GET'])
+#def getDataVisualization():  
+#   return render_template("dataVisualization.html")
+
 @app.route('/visualization', methods = ['GET'])
-def getDataVisualization():  
-    return render_template("dataVisualization.html")
+def getDataVisualization2():  
+    return render_template("b_data.html")
 
 @app.route('/livedemo', methods = ['GET'])
 def getLiveDemo():  
@@ -67,6 +75,6 @@ def getGraphRuleBaedAnalysisData():
         return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=9040, debug=True)# -*- coding: utf-8 -*-
+    app.run(port=8040, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 

@@ -45,7 +45,7 @@ def classifyOriginalDataSet():
     #step,type,amount,oldbalanceOrg,newbalanceOrig,oldbalanceDest,newbalanceDest,isFraud,
     # 0 , 1   , 2   ,     3      ,      4       ,      5      ,      6       ,   7   ,    
     
-    sample_dataframe = dataset.sample(n=50000)
+    sample_dataframe = dataset.sample(n=40000)
     X = sample_dataframe.iloc[:, :-1].values
     y = sample_dataframe.iloc[:, 7].values
     
@@ -61,10 +61,10 @@ def classifyOriginalDataSet():
     # Avoiding the Dummy Variable Trap
     X = X[:, 1:]
     
-    X1 = X[:25000, :]
-    y1 = y[:25000]
-    X2 = X[25002:, :]
-    y2 = y[25002:]
+    X1 = X[:2500, :]
+    y1 = y[:2500]
+    X2 = X[2502:, :]
+    y2 = y[2502:]
     
     # Splitting the dataset into the Training set and Test set
     '''
