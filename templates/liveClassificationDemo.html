@@ -6,6 +6,7 @@
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -240,80 +241,48 @@ Highcharts.theme = {
 // Apply the theme
 Highcharts.setOptions(Highcharts.theme);
     
-    
-$(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "{{url_for('static', filename='launderingCases.csv')}}",
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
-});
 
-var lines = [];
-
-function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
-    //var headers = allTextLines[0].split(',');
-    
-
-    for (var i=0; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-
-            var tarr = [];
-            for (var j=0; j<data.length; j++) {
-                tarr.push(parseInt(data[j]));
-            }
-            lines.push(tarr);
-        //}
-    }
-    console.debug(lines);
-     //alert(lines);
-}
+var launderingList = [];
+var listF1 = [];
 
 $(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "{{url_for('static', filename='normalCases.csv')}}",
-        dataType: "text",
-        success: function(data) {processDataNew(data);}
-     });
-});
-
-var lines2 = [];
-
-function processDataNew(allText2) {
-    var allTextLines = allText2.split(/\r\n|\n/);
-    //var headers = allTextLines[0].split(',');
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started perdiodically ! ")
+          intialDataFetch();
+    });
     
-
-    for (var i=0; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
+    var intialDataFetch = function () {
+    console.log("Graph updating.. ")
+    var updatedData = $.get('/getLiveData');
+    updatedData.done(function(results){
+           
+       
+        var casesList = results.Cases_List;
+        launderingList= casesList.launderingList;
         
-           var v_zeroo =0;
-            var tarr2 = [];
-            for (var j=0; j<data.length; j++) {
-            if(parseInt(data[j])<500000)
+        
+        for (var i =0; i< launderingList.length; i ++)
+        {
+            //console.log("Val :", launderingList[i])
+            var row = launderingList[i];
+            
+            for (var j=0; j<3; j++)
             {
-                v_zeroo=1;
+               //console.log("Val :", row[j]);  
             }
-                tarr2.push(parseInt(data[j]));
-            }
-            if(v_zeroo==1)
-            {
-            //means a zero is found, dont push in lines
-            }
-            else
-            {
-            lines2.push(tarr2);
-            }
-    }
-    //console.debug(lines2);
-     //alert(lines2);
-}
+            listF1.push(row);
+        }
+        
+        
+        console.log(listF1);
+        
+    });
+    setTimeout(intialDataFetch, 500000);
+       };
 
-//var liness = [[10,20,30],[20,30,40]];
-//console.debug(liness);
+//var listFinal = [];
+//listFinal.push(launderingList);
 
 // Set up the chart
 var chart = new Highcharts.Chart({
@@ -371,7 +340,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading',
         colorByPoint: false,
        
-        data: lines ,
+        data: listF1 ,
         
         color: '#FF0000'
             
@@ -381,7 +350,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading2',
         colorByPoint: false,
        
-        data: lines2 ,
+        data: [[100000,200000,300000]] ,
         
         color: '#B2FF59'
             

@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="icon" href="/static/analytics.png">
+<title>Realtime chat analysis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<style>
+
+    #graphDiv  {
+            width: 46%; 
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left : 10px;
+            margin-right : 30px;
+            }
+    
+    #doughnutDiv  {
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left : 40px;
+            margin-right : 10px;
+            }
+            
+    #myChart {
+            background-color: rgba(255, 255, 255,255);
+             padding: 10px 10px;
+    }
+    
+    #myDoughnut {
+            background-color: rgba(255, 255, 255,255);
+             padding: 10px 10px;
+    }
+    
+    div.mainGraphChartDiv {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            margin-left : 30px;
+            margin-right : 30px;
+            padding : 20px 10px;
+            background-color : #555555;
+            border-radius: 5px;
+            
+            text-align: center;
+            margin: 0px auto;
+            width: 80%;    
+        
+    }
+    
+    div.mainGraphChartDiv > div {
+    display: inline-block;
+    }
+    
+     div.numericalDataDiv {
+            margin-top: 30px;
+            margin-bottom: 0px;
+            margin-left : 30px;
+            margin-right : 30px;
+            padding : 20px 10px;
+            background-color : #555555;
+            border-radius: 5px;
+            
+            text-align: center;
+            margin: 50px auto;
+            width: 80%;    
+        
+    }
+    
+    div.numericalDataDiv > div {f
+    width: 25%; 
+    margin: 20px  50px;
+    display: inline-block;
+    }
+    
+    div.heading {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color : #FFC107;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+            margin-left : 30px;
+            margin-right : 30px;
+            padding : 30px 10px;
+            background-color : #555555;
+            border-radius: 5px;
+            
+            text-align: center;
+            margin: 50px auto;
+            width: 50%;    
+            
+            border-style: solid;
+            border-width: 2px;
+            border-color: #FFC107;
+    
+}
+
+    div.count {
+    color : #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    }
+
+</style>
+</head>
+
+<body class="body" style="background-color: #171717;">
+
+    <div class="heading" align="center">
+        Realtime chat sentiment analysis</Button>
+	</div>
+    
+    <div class="mainGraphChartDiv">
+        <div id="graphDiv">
+            <canvas id="myChart" align="cetner"></canvas>
+        </div>
+        <div id="doughnutDiv">
+            <canvas id="myDoughnut" width="300" height="300" align="cetner"></canvas>
+        </div>
+    </div>
+    
+    <div class="numericalDataDiv">
+        <div id="totalChatsDiv"style="color:#FFC107;" class="count">
+            
+        </div >
+        <div id="avgSentimentDiv" style="color:#2196F3;" class="count">
+        </div>
+        <div id="positiveChatCountDiv" style="color:#4CAF50;" class="count">
+        </div>
+        <div id="negetiveChatCountDiv" style="color:#F44336;" class="count">
+        </div>
+    </div>
+    
+    
+    
+<script>
+
+var ctxLineChart = document.getElementById('myChart').getContext('2d');
+var ctxDoughnut = document.getElementById('myDoughnut').getContext('2d');
+
+var chart = new Chart(ctxLineChart, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: [],
+        datasets: [{
+            label: "+Ve Chats",
+            backgroundColor: '#4CAF50',
+            borderColor: '#4CAF50',
+            data: [],
+            fill:true,
+        },
+        {
+            label: "-Ve Chats",
+            backgroundColor: '#F44336',
+            borderColor: '#F44336',
+            data: [],
+            fill:true,
+        }
+        
+        ]
+    },
+
+    // Configuration options go here
+    options: {
+    
+    }
+});
+
+var myDoughnutChart = new Chart(ctxDoughnut, {
+    type: 'doughnut',
+    data: {
+        labels: ["Positive %", "Negative %"],
+        datasets: [{
+            data: [100, 0],
+            backgroundColor: [
+                    "#4CAF50",
+                    "#F44336"
+                ],
+                borderColor: [
+                    "#4CAF50",
+                    "#F44336"
+                ],
+                borderWidth: [4, 4]
+        },
+        ]
+    },
+    options:{
+        rotation : 2 * Math.PI,
+		segmentShowStroke : true,
+		segmentStrokeColor : "#fff",
+		segmentStrokeWidth : 4,
+		percentageInnerCutout : 50,
+		animationSteps : 500,
+		animationEasing : "easeOutBounce",
+		animateRotate : true,
+		animateScale : true,
+		responsive: true,
+		maintainAspectRatio: true,
+		showScale: true,
+		animateScale: true
+	}
+});
+
+ $(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started automatically! ")
+          intialDataFetch();
+    });
+    
+    var posChatCount =0;
+    var negChatCount =0;
+    var totCountServer =0;
+    var avgSentiment =0;
+    
+    var intialDataFetch = function () {
+    console.log("Graph updating.. ")
+    var updatedData = $.get('/getInitialGraphDataJson');
+    updatedData.done(function(results){
+           
+        var lenPositive = chart.data.datasets[0].data.length;
+        var lenNegetive = chart.data.datasets[1].data.length;
+        
+        //divide the total chat count by 2 as 0's are include in anti lists
+        var totCountChart = (lenPositive + lenNegetive)/2;
+        totCountServer = results.total_chat_count;
+        if(totCountChart == totCountServer)
+        {
+            console.log('Nothing to update');
+        }
+        else
+        {
+        //updating chart
+            console.log('Updated');
+        //setting label for whole chart
+            chart.data.labels = results.labels;
+        //for positive chats
+            chart.data.datasets[0].data = results.positive_factor_list;
+        //for negetive chats
+            chart.data.datasets[1].data = results.negetive_factor_list;
+            chart.update(1000);
+            
+        posChatCount = results.positive_chat_count;
+        negChatCount = results.negetive_chat_count;
+        avgSentiment = results.average_sentiment;
+        avgSentiment = (Math.round(avgSentiment * 100) / 100);
+        var posChatPerc = (posChatCount / totCountServer) * 100;
+        var negChatPerc = (negChatCount / totCountServer) * 100;
+    
+        
+        counter('#totalChatsDiv', totCountServer, "#Total Chats : ");
+        $("#avgSentimentDiv").text("Avg Sentiment : "+ avgSentiment);
+        //counter('#avgSentimentDiv', avgSentiment, "Avg Sentiment : ");
+        counter('#positiveChatCountDiv', posChatCount, "#Positive Chats : ");
+        counter('#negetiveChatCountDiv', negChatCount, "#Negetive Chats : ");
+        
+        //updating doughnut
+            myDoughnutChart.data.datasets[0].data[0] = Math.round(posChatPerc * 100) / 100;
+            myDoughnutChart.data.datasets[0].data[1] = Math.round(negChatPerc * 100) / 100;
+            myDoughnutChart.data.labels[0] = "Positive "+Math.round(posChatPerc * 100) / 100+" %";
+            myDoughnutChart.data.labels[1] = "Negative "+Math.round(negChatPerc * 100) / 100+" %";
+            myDoughnutChart.update(1000);
+        }
+        
+                    
+    });
+    setTimeout(intialDataFetch, 7000);
+       };
+       
+       function counter(elementName,  valueToUpdate, textMsg) {
+    $(elementName).prop('Coufdasnterrr',0).animate({
+        Counter: valueToUpdate
+    }, {
+        duration: 1500,
+        easing: 'swing',
+        step: function (now) {
+            $(elementName).text(textMsg + Math.ceil(now));
+        }
+    });
+};
+       
+
+</script>
+
+</body>
+
+</html>
