@@ -70,6 +70,7 @@ pipeline4.fit(X_train, y_train)
 print(count)
 
 predicted=pipeline4.predict(X_test)
+print (X_test.shape)
 
 from sklearn.metrics import accuracy_score
 
