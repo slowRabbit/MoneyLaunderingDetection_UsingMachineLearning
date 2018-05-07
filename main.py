@@ -24,9 +24,18 @@ def getMainAnalysisPage():
     print ("The result is : ", sv.retData())
     return render_template("analysis.html")
 
+@app.route('/analysis', methods = ['GET'])
+def getAnalysisPage():
+    print ("The result is : ", sv.retData())
+    return render_template("c_analysis.html")
+
 @app.route('/data', methods = ['GET'])
 def getData():  
     return render_template("data.html")
+
+@app.route('/livedemo', methods = ['GET'])
+def getLiveDemo():  
+    return render_template("d_liveDemo.html")
 
 #@app.route('/visualization', methods = ['GET'])
 #def getDataVisualization():  
@@ -36,9 +45,10 @@ def getData():
 def getDataVisualization2():  
     return render_template("b_data.html")
 
-@app.route('/livedemo', methods = ['GET'])
-def getLiveDemo():  
-    return render_template("liveClassificationDemo.html")
+@app.route('/roundgraph', methods = ['GET'])
+def getRoundGraphForComparision():  
+    return render_template("round.html")
+
 
 
 @app.route('/getLiveData', methods = ['GET'])
@@ -75,6 +85,6 @@ def getGraphRuleBaedAnalysisData():
         return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=8040, debug=True)# -*- coding: utf-8 -*-
+    app.run(port=9040, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 

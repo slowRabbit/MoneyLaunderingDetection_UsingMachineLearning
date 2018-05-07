@@ -7,10 +7,18 @@ from flask import Response
 launderingList = []
 normalList = []
 
-#tempArr  = [0.0,105657.71,979014.18]
-#launderingList.append(tempArr)
-#tempArr  = [0.0,2250319.57,2931845.19]
-#launderingList.append(tempArr)
+
+tempArrN  = [0.0,288800.0,2415.16]
+normalList.append(tempArrN)
+tempArrN  = [0.0,21182.0,0.0]
+normalList.append(tempArrN)
+tempArrN  = [29885.86,0.0,0.0]
+normalList.append(tempArrN)
+
+tempArrL  = [19384.72,676715.35,156840.93]
+launderingList.append(tempArrL)
+tempArrL  = [0.0,302583.81,764093.67]
+launderingList.append(tempArrL)
 
 def returnCasesList():
 
@@ -19,6 +27,7 @@ def returnCasesList():
     return jsonify({'Cases_List':
             {
                     'launderingList': launderingList,
+                    'normalList':normalList,
                     }
         })
     

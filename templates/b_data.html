@@ -39,6 +39,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     width: 50%;
 }
     #container1 { border:1px dotted blue; width: 700px; height: 475px; position: relative; }
+    
+.td{
+font-size: 25px;
+}
 <!--	
 h1 {
     background-color: #F44336;
@@ -91,10 +95,9 @@ color:#757575;
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="/overview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">OVERVIEW</a>
-	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">DATA</a>
-    <a href="C:\Users\prashant\Desktop\livedemo.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">LIVE DEMO</a>
-    <a href="C:\Users\prashant\Desktop\Analytics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ANALYTICS</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ABOUT US</a>
+	<a href="/visualization" class="w3-bar-item w3-button w3-padding-large w3-white">VISUALIZATION</a>
+    <a href="/analysis" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ANALYSIS</a>
+     <a href="/livedemo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">LIVE DEMO</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -115,10 +118,19 @@ color:#757575;
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-    <div class="w3-twothird w3-margin">
-      <h1>SAMPLE VIEW OF TRANSACTIONS</h1>
+
+</div>
+   <div>
+   <center>
+    <div class="w3-twothird w3-margin"  style="margin: auto;width: 100%;padding:50px;" >
+      <div class="row">
+  <div class="column" >
+      <center>
+      <h1 style="padding:30px;min-width: 500px;white-space:nowrap;overflow:hidden;padding-right:50px;">SAMPLE VIEW OF TRANSACTIONS</h1>
       <!-- <h5 class="w3-padding-32"></h5> -->
- 
+     </center>
+     </div>
+  <div class="column"></div>
   <table class="w3-table-all w3-small" >
     <tr>   
     <th class="thh">Time</th>
@@ -151,8 +163,8 @@ color:#757575;
    
   </table>
 
-      <p class="w3-text-black">So we are using the data having 11 parameters </p>
-      <p class="w3-text-black">By use of Machine Intelligence techniques,We have featured out three important parameters which helps to identify about the nature of transaction.</p>
+      <p class="w3-text-black w3-large">We have used data having various parameters ranging from time,type and amount of transaction to origin and destination of transactions </p>
+      <p class="w3-text-black w3-large">By use of Machine Intelligence techniques and algorithms,We have identified three important parameters which helps to identify about the nature of transaction.</p>
     </div>
 
     <!--<div class="w3-third w3-center">
@@ -160,7 +172,7 @@ color:#757575;
     </div> -->
   </div>
 </div>
-
+<div>
 <!-- Second Grid 
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
@@ -181,11 +193,10 @@ color:#757575;
 -->
 <div class="w3-row-padding w3-padding-64 w3-container">
 <div class="w3-content">
-<div class="w3-twothird">
-	<h1><center>3D Data Visualisation using Imp Parameters</h1> </center>
-	</div>
-	</div>
+	<h1 style="padding:30px;min-width: 500px;white-space:nowrap;overflow:hidden;padding-right:50px;"><center>3D Data Visualisation using Imp Parameters</h1> </center>
 
+	</div>
+</center>
 </div>
 
  <!--
@@ -258,7 +269,7 @@ color:#757575;
 <!-- Footer -->
 
 
-<div id="container" style="width:900px ;height: 600px;"></div>
+<div id="container" style="width:900px ;height: 600px;" ></div>
     
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
  <p>Powered by <a href="https://www.hsbc.co.in" target="_blank">HSBC Technology India</a></p>
@@ -574,11 +585,9 @@ var chart = new Highcharts.Chart({
         }
     },
     title: {
-        text: 'Draggable box'
+        text: '3D visualization'
     },
-    subtitle: {
-        text: 'Click and drag the plot area to rotate in space'
-    },
+    
     plotOptions: {
         scatter: {
             width: 10,
@@ -589,17 +598,18 @@ var chart = new Highcharts.Chart({
     yAxis: {
         min: 0,
         max: 10000000,
-        title: null
+        title: "YYYYYYY"
     },
     xAxis: {
         min: 0,
+        label :"hey",
         max: 10000000,
         gridLineWidth: 1
     },
     zAxis: {
         min: 0,
         max: 10000000,
-        showFirstLabel: false
+        showFirstLabel: true
     },
     legend: {
         enabled: false

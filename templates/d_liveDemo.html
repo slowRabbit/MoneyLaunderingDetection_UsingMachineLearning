@@ -39,6 +39,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     width: 50%;
 }
     #container1 { border:1px dotted blue; width: 700px; height: 475px; position: relative; }
+    
+.td{
+font-size: 25px;
+}
 <!--	
 h1 {
     background-color: #F44336;
@@ -90,11 +94,10 @@ color:#757575;
 <div class="w3-top">
   <div class="w3-bar w3-red w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="C:\Users\prashant\Desktop\Overview.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">OVERVIEW</a>
-	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">DATA</a>
-    <a href="C:\Users\prashant\Desktop\livedemo.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">LIVE DEMO</a>
-    <a href="C:\Users\prashant\Desktop\Analytics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ANALYTICS</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ABOUT US</a>
+    <a href="/overview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">OVERVIEW</a>
+	<a href="/visualization" class="w3-bar-item w3-button w3-padding-large w3-hover-white">VISUALIZATION</a>
+    <a href="/analysis" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">ANALYSIS</a>
+     <a href="/livedemo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">LIVE DEMO</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -108,17 +111,52 @@ color:#757575;
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <p class="w3-margin w3-jumbo">Data  Analysis</p>
+  <p class="w3-margin w3-jumbo">Live Demo</p>
   
 </header>
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-content">
+	<h1 style="padding:30px;min-width: 500px;white-space:nowrap;overflow:hidden;padding-right:50px;"><center>Live classification of test transactions</h1> </center>
+
+	</div>
+</center>
+</div>
+
+
+<div id="container" style="width:900px ;height: 600px;" ></div>
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-content">
+<center>
+	<button onclick="myFunction()" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="padding:30px;min-width: 500px;white-space:nowrap;overflow:hidden;padding-right:50px;">TRY IT NOW</button>
+</center>
+    <script>
+function myFunction() {
+    alert("Classification started..");
+}
+</script>
+	</div>
+</center>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content">
-    <div class="w3-twothird w3-margin">
-      <h1>SAMPLE VIEW OF TRANSACTIONS</h1>
+
+</div>
+   <div>
+   <center>
+    <div class="w3-twothird w3-margin"  style="margin: auto;width: 100%;padding:50px;" >
+      <div class="row">
+  <div class="column" >
+      <center>
+      <h1 style="padding:30px;min-width: 500px;white-space:nowrap;overflow:hidden;padding-right:50px;">TEST TRANSACTIONS</h1>
       <!-- <h5 class="w3-padding-32"></h5> -->
- 
+     </center>
+     </div>
+  <div class="column"></div>
   <table class="w3-table-all w3-small" >
     <tr>   
     <th class="thh">Time</th>
@@ -134,33 +172,22 @@ color:#757575;
     <th class="thh">IsFlaggedFraud</th>
     </tr>
     
-    
-<tr><td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
+<tr><td>51</td><td>CASH_OUT</td><td>110414.71</td><td>C1231006815</td><td>26845.41</td><td>0.0</td><td>M1979787155</td><td>288800.0</td><td>2415.16</td><td>0</td><td>0</td></tr>
+<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>676715.35</td><td>156840.93</td><td>0</td><td>0</td></tr>
+<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>302583.81</td><td>764093.67</td><td>1</td><td>0</td></tr>
 <tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
 <tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
-<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
-<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-   
+
   </table>
 
-      <p class="w3-text-black">So we are using the data having 11 parameters </p>
-      <p class="w3-text-black">By use of Machine Intelligence techniques,We have featured out three important parameters which helps to identify about the nature of transaction.</p>
-    </div>
+   </div>
 
     <!--<div class="w3-third w3-center">
       Image
     </div> -->
   </div>
 </div>
-
+<div>
 <!-- Second Grid 
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
@@ -179,86 +206,9 @@ color:#757575;
   </div>
 </div>
 -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-<div class="w3-content">
-<div class="w3-twothird">
-	<h1><center>3D Data Visualisation using Imp Parameters</h1> </center>
-	</div>
-	</div>
-
-</div>
-
- <!--
-<div class="w3-container">
-   
-   
-<center><h1 align="center">DATA GENERATION AND FEATURING </h1> </center>
- 
-
-  <p class="indent">For Analysis Purposes,We have generated our data and simulated it as the real HSBC data after talking to various stakeholders<br/>
-	We have considered following parameters,<br/>
-	<p class="indent2">=>Account Type -- It shows the type of account of consumer<br/>
-			Values-	Personal,Corporate,Government,Private,NGO<br/></p>
-	<p class="indent2">=>Transaction Type --It reflects the mode of the transaction<br/>
-			Values- Payment,Debit,Transfer,Cash-in,Cash-out<br/></p>
-	<p class="indent2">=>Amount -- Value of the transaction Money<br/>
-			Values- 5000-50000<br/></p>
-	<p class="indent2">=>Month -- It shows the month of the transaction<br/>
-			Values- 1,2,3,4,5,6,7,8,9,10,11,12<br/></p>
-	<p class="indent2">=>Transaction Timing -- This reflects the period of transaction<br/>
-			Values- Usual,Unusual<br/></p>
-	<p class="indent2">=>Location Risk -- This parameter shows the risk of the geographical location where transaction takes place<br/>
-			Values-High,Medium,Low<br/></p>
-	<p class="indent2">=>Average Transactions -- This shows the average number of transactions<br/>
-			Values- 1-100<br/></p>
-<br/>
-</p>
-<center> <h2>SAMPLE DATA</h2> </center>
- 
- 
-  <table class="w3-table-all w3-small" id="tablee">
-    <tr>   
-    <th class="thh">time</th>
-    <th class="thh">type</th>
-    <th class="thh">amount</th>
-    <th class="thh">nameOrig</th>
-    <th class="thh">oldbalanceOrg</th>
-    <th class="thh">newbalanceOrig</th>
-    <th class="thh">nameDest</th>
-    <th class="thh">oldbalanceDest</th>
-    <th class="thh">newbalanceDest</th>
-    <th class="thh">isFraud</th>
-    <th class="thh">isFlaggedFraud</th>
-    </tr>
-    
-    
-<tr><<td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
-<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
-<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
-<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
-<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-
-    
-    
-    
-  </table>
-
-</div>
--->
-
-
 <!-- Footer -->
 
 
-<div id="container" style="width:900px ;height: 600px;"></div>
     
     <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
  <p>Powered by <a href="https://www.hsbc.co.in" target="_blank">HSBC Technology India</a></p>
@@ -552,6 +502,59 @@ function processDataNew(allText2) {
 //var liness = [[10,20,30],[20,30,40]];
 //console.debug(liness);
 
+var launderingList = [];
+var normalList =  [];
+var listF1 = [];
+var listF2 = [];
+
+$(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started perdiodically ! ")
+          intialDataFetch();
+    });
+    
+    var intialDataFetch = function () {
+    console.log("Graph updating.. ")
+    var updatedData = $.get('/getLiveData');
+    updatedData.done(function(results){
+           
+       
+        var casesList = results.Cases_List;
+        launderingList= casesList.launderingList;
+        normalList = casesList.normalList;
+        
+        for (var i =0; i< launderingList.length; i ++)
+        {
+            //console.log("Val :", launderingList[i])
+            var row = launderingList[i];
+            
+            for (var j=0; j<3; j++)
+            {
+               //console.log("Val :", row[j]);  
+            }
+            listF1.push(row);
+        }
+        
+           for (var i =0; i< normalList.length; i ++)
+        {
+            //console.log("Val :", normalList[i])
+            var row = normalList[i];
+            
+            for (var j=0; j<3; j++)
+            {
+               //console.log("Val :", row[j]);  
+            }
+            listF2.push(row);
+        }
+        
+        console.log(listF1+"--"+listF2);
+        
+    });
+    setTimeout(intialDataFetch, 10000);
+       };
+
+
 // Set up the chart
 var chart = new Highcharts.Chart({
     chart: {
@@ -574,11 +577,9 @@ var chart = new Highcharts.Chart({
         }
     },
     title: {
-        text: 'Draggable box'
+        text: '3D visualization'
     },
-    subtitle: {
-        text: 'Click and drag the plot area to rotate in space'
-    },
+    
     plotOptions: {
         scatter: {
             width: 10,
@@ -588,18 +589,19 @@ var chart = new Highcharts.Chart({
     },
     yAxis: {
         min: 0,
-        max: 10000000,
-        title: null
+        max: 1000000,
+        title: "YYYYYYY"
     },
     xAxis: {
         min: 0,
-        max: 10000000,
+        label :"hey",
+        max: 1000000,
         gridLineWidth: 1
     },
     zAxis: {
         min: 0,
-        max: 10000000,
-        showFirstLabel: false
+        max: 1000000,
+        showFirstLabel: true
     },
     legend: {
         enabled: false
@@ -608,7 +610,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading',
         colorByPoint: false,
        
-        data: lines ,
+        data: listF1 ,
         
         color: '#FF0000'
             
@@ -618,7 +620,7 @@ var chart = new Highcharts.Chart({
         name: 'Reading2',
         colorByPoint: false,
        
-        data: lines2 ,
+        data: listF2 ,
         
         color: '#B2FF59'
             

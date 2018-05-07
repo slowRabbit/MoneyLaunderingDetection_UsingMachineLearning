@@ -61,10 +61,10 @@ def classifyOriginalDataSet():
     # Avoiding the Dummy Variable Trap
     X = X[:, 1:]
     
-    X1 = X[:2500, :]
-    y1 = y[:2500]
-    X2 = X[2502:, :]
-    y2 = y[2502:]
+    X1 = X[:15000, :]
+    y1 = y[:15000]
+    X2 = X[15002:, :]
+    y2 = y[15002:]
     
     # Splitting the dataset into the Training set and Test set
     '''

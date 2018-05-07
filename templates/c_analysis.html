@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<title>Analytics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+
+
+
+<title>DATASHEET</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+<!--hjwqdwhdbwd-->
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#heading {
+    background-color: #00B0FF;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 20px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 45px;
+    margin: 8px 10px;
+}
+div.heading {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color : white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+}
+div.row{
+    margin : 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+div.title1{
+    margin-left : 100px;
+    margin-top : 20px;
+    margin-bottom : 10px;
+    color : #039BE5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+div.title12{
+    margin-left : 100px;
+    margin-top : 20px;
+    margin-bottom : 10px;
+    color : #039BE5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+div.title3{
+    margin-left : 200px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    color : #039BE5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+div.title4{
+    margin-left : 10px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    color : #039BE5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+
+
+#container {
+	margin: 0 auto;
+	max-width: 400px;
+	min-width: 380px;
+	}
+	
+#rulebasedgraph {
+	margin: 0 auto;
+	max-width: 600px;
+	min-width: 400px;
+	}
+
+
+.loading {
+    margin-top: 10px;
+    text-align: center;
+    color: gray;
+}
+#statsid{
+    margin-top : 20px;
+    margin-left : 40px;
+    max-width : 1100px;
+}
+
+</style>
+
+
+<!--
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+-->
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/overview" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">OVERVIEW</a>
+    <a href="/visualization" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">VISUALIZATION</a>
+    <a href="/analysis" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">ANALYSIS</a>
+     <a href="/livedemo" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">LIVE DEMO</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">DATA</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">LIVE DEMO</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">OVERVIEW</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">ABOUT US</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">ANALYTICS</h1>
+  
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-half">
+      <h1>Current Tools</h1>
+      <h3 class="w3-padding-32">95.28%  Efficiency </h3>
+
+     <canvas id="rulebasedgraph"></canvas>  
+   </div>
+
+    <div class="w3-half w3-center">
+      <h1>Our Tool</h1>
+      <h3 class="w3-padding-32">56.70%  Efficiency</h3>
+     <canvas id="mlgraph"></canvas>
+      </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+       <h1>Account wise alert analysis</h1>
+      <h3 class="w3-padding-32">The type of accounts which are generating most of the alerts and their stats can be monitored easily</h3>
+<canvas id="statistics"></canvas>    
+     
+
+</div>
+
+
+
+<div class="w3-row-padding w3-padding-64 w3-container">
+<div class="w3-content">
+       <h1>World wide alert analysis</h1>
+      <h5 class="w3-padding-32">We can also analyze the geographical regions which are generating most of the alerts,
+      so as to take appropriate measures in that region  to minimise loss </h5>
+    <center>
+	<div id="container1" class="row" style="width: 100%; float:center; height:600px; margin:100px;">
+    </center> 
+     
+
+</div>
+    
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ <p>Powered by <a href="https://www.hsbc.co.in" target="_blank">HSBC Technology India</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+</body>
+<body class="body" style="background-color: #FFFFFF;">
+      
+      <!--
+      <button type="button" onclick="loadFactorDataGraph()" > Update </Button>
+      -->
+     
+       <script>
+       
+        $(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Function 1 ");
+          //intialDataFetchML();
+        document.getElementById('c1').style.visibility = 'hidden';
+    });
+    
+       
+       function myFunction()
+       {
+           //console.log("hey");
+          //document.getElementById('c1').style.visibility = 'visible';
+          setTimeout(
+    function() {
+            document.getElementById('c1').style.visibility = 'visible';
+    }, 2000);
+       }
+       
+       </script>
+       
+	  </div>
+            <script>
+                var ctx = document.getElementById('mlgraph').getContext('2d');
+                var chartt = new Chart(ctx, {
+                // The type of chart we want to create
+            type: 'line',
+                // The data for our dataset
+            data: {
+                labels: [0, 1, "2", "3", "4", "5", "6", "7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23",
+                         "24","25","26","27","28","29","30","31",
+                         "32","33","34","35","36","37","38","39","40"
+                    ],
+                datasets: [{
+                    label: "True Positive",
+                    backgroundColor: '#009688',
+                    borderColor: '#009688',
+                    data: [ ,  1,1,1,1, ,,1,1,1,1,1,1,1,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, , ],
+                },
+                {
+                    label: "False Positive",
+                    backgroundColor: '#EF5350',
+                    borderColor: '#EF5350',
+                    data: [, , ,,,-1,-1,,,,,,,-1,-1,,,,,,,,,,,,,,,,,,,,,,, ],
+                },
+                {
+                    label: " ",
+                    showLine : false,
+                    backgroundColor: '#FFFFFF',
+                    borderColor: '#FFFFFF',
+                    data: [1.2, -1.2,],
+                },
+                ]
+            },
+            // Configuration options go here
+            options : {
+                  scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                            labelString: 'False Positive     vs    True Positive'
+                      }
+                    }]
+                      }
+                    }
+            });
+            
+            <!-- JAVASCRIPT CODE FOR AJAX CALLS-->
+            
+            
+            $(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started automatically! ")
+          intialDataFetchML();
+    });
+    
+    var intialDataFetchML = function () {
+    console.log("Graph updating.. ml based")
+    var updatedData = $.get('/getdataML');
+    updatedData.done(function(results){
+        
+        console.log('efficiency is :'+results.efficiency);
+        
+        
+        
+        //updating chart
+            console.log('Updated');
+        //setting label for whole chart
+            chartt.data.labels = results.allLabelList;
+        //for positive chats
+            chartt.data.datasets[0].data = results.positiveCaseList;
+        //for negetive chats
+            chartt.data.datasets[1].data = results.negetiveCaseList;
+            chartt.update(1000);
+        
+                    
+    });
+       };
+       
+       var intialDataFetchRuleBased = function () {
+    console.log("Graph updating..Rule based")
+    var updatedData = $.get('/getdataRuleBased');
+    updatedData.done(function(results){
+        
+        console.log('efficiency is :'+results.efficiency);
+        
+        
+        
+        //updating chart
+            console.log('Updated');
+        //setting label for whole chart
+            chartRL.data.labels = results.allLabelList;
+        //for positive chats
+            chartRL.data.datasets[0].data = results.positiveCaseList;
+        //for negetive chats
+            chartRL.data.datasets[1].data = results.negetiveCaseList;
+            chartRL.update(1000);
+        
+                    
+    });
+       };
+       
+      
+            
+            </script>
+
+        </div>
+
+             <script>
+                 var ctx = document.getElementById('rulebasedgraph').getContext('2d');
+                var chartRL = new Chart(ctx, {
+                // The type of chart we want to create
+            type: 'line',
+                // The data for our dataset
+            data: {
+                labels: ["0", "1", "2", "3", "4", "5", "6", "7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23",
+                         "24","25","26","27","28","29","30","31",
+                         "32","33","34","35","36","37","38","39","40"
+                    ],
+                datasets: [{
+                    label: "True Positive",
+                    backgroundColor: '#009688',
+                    borderColor: '#009688',
+                    data: [ ,  1,1,1,1, ,,,1,1,,1,1,1,,1,1,1,1,1,1,1,1,,,1,1,1,1,1,,,1,1,1,1,,, , ],
+                },
+                {
+                    label: "False Positive",
+                    backgroundColor: '#EF5350',
+                    borderColor: '#EF5350',
+                    data: [, , ,,,-1,-1,-1,-1,,,,,-1,-1,,,,,,,,,-1,-1,-1,,,,,-1,-1,-1,,-1,-1,-1, ],
+                },
+                {
+                    label: " ",
+                    showLine : false,
+                    backgroundColor: '#FFFFFF',
+                    borderColor: '#FFFFFF',
+                    data: [1.2, -1.2,],
+                },
+                ]
+            },
+            // Configuration options go here
+            options : {
+                  scales: {
+                    yAxes: [{
+                      scaleLabel: {
+                        display: true,
+                            labelString: 'False Positive     vs    True Positive'
+                      }
+                    }]
+                      }
+                    }
+            });
+            
+             $(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started automatically! ")
+          intialDataFetchRuleBased();
+    });            
+            
+            var intialDataFetchRuleBased = function () {
+    console.log("Graph updating..Rule based")
+    var updatedData = $.get('/getdataRuleBased');
+    updatedData.done(function(results){
+        
+        console.log('efficiency is :'+results.efficiency);
+        
+        
+        
+        //updating chart
+            console.log('Updated');
+        //setting label for whole chart
+            chartRL.data.labels = results.allLabelList;
+        //for positive chats
+            chartRL.data.datasets[0].data = results.positiveCaseList;
+        //for negetive chats
+            chartRL.data.datasets[1].data = results.negetiveCaseList;
+            chartRL.update(1000);
+        
+                    
+    });
+       };
+            
+            </script>
+
+        </div>
+    
+      </div>
+ 
+    </div>
+    
+    <script>	
+		<!-- graphs for row2 -->
+	var ctx = document.getElementById('statistics').getContext('2d');
+	var chart = new Chart(ctx, {
+       // The type of chart we want to create
+       type: 'bar',
+       // The data for our dataset
+       data: {
+        labels: ["Personal", "Corporate", "Government", "Private", "NGO"],
+        datasets: [{
+            backgroundColor: ['#FDD835','#DD2C00','#CDDC39','#FF6D00','#69F0AE'],
+            borderColor: ['#42A5F5','#C62828','#42A5F5','#C6FF00','#6A1B9A'],
+            data: [25, 50, 20, 38, 15,0],
+        }]
+        },
+    // Configuration options go here
+    options: {
+  scales: {
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: '#  Money Laundering Cases'
+      }
+    }]
+  }
+}
+});
+	
+	$(document).ready(function() {
+  
+          //factor_graph_updater()
+          console.log("Graph updation Started automatically! ")
+          intialDataFetchStats();
+    });
+    
+    var intialDataFetchStats = function () {
+    console.log("Graph updating.. ml based")
+    var updatedData = $.get('/getdataML');
+    updatedData.done(function(results){
+        
+        console.log('personal count is :'+results.personal);
+        
+        
+        
+        //updating chart
+            console.log('Updated');
+        //setting label for whole chart
+            chartt.data.labels = results.allLabelList;
+        //for positive chats
+            chartt.data.datasets[0].data = results.positiveCaseList;
+        //for negetive chats
+            chartt.data.datasets[1].data = results.negetiveCaseList;
+            chartt.update(1000);
+        
+                    
+    });
+       };
+	
+</script>
+
+    </div>
+
+</div>
+
+<script>
+    // example data from server
+    var series = [
+        ["BLR",75],["BLZ",43],["RUS",50],["RWA",88],["SRB",21],["TLS",43],
+        ["REU",21],["TKM",19],["TJK",60],["ROU",4],["TKL",44],["GNB",38],
+        ["GUM",67],["GTM",2],["SGS",95],["GRC",60],["GNQ",57],["GLP",53],
+        ["JPN",59],["GUY",24],["GGY",4],["GUF",21],["GEO",42],["GRD",65],
+        ["GBR",14],["GAB",47],["SLV",15],["GIN",19],["GMB",63],["GRL",56],
+        ["ERI",57],["MNE",93],["MDA",39],["MDG",71],["MAF",16],["MAR",8],
+        ["MCO",25],["UZB",81],["MMR",21],["MLI",95],["MAC",33],["MNG",93],
+        ["MHL",15],["MKD",52],["MUS",19],["MLT",69],["MWI",37],["MDV",44],
+        ["MTQ",13],["MNP",21],["MSR",89],["MRT",20],["IMN",72],["UGA",59],
+        ["TZA",62],["MYS",75],["MEX",80],["ISR",77],["FRA",54],["IOT",56],
+        ["SHN",91],["FIN",51],["FJI",22],["FLK",4],["FSM",69],["FRO",70],
+        ["NIC",66],["NLD",53],["NOR",7],["NAM",63],["VUT",15],["NCL",66],
+        ["NER",34],["NFK",33],["NGA",45],["NZL",96],["NPL",21],["NRU",13],
+        ["NIU",6],["COK",19],["XKX",32],["CIV",27],["CHE",65],["COL",64],
+        ["CHN",06],["CMR",70],["CHL",15],["CCK",85],["CAN",76],["COG",20],["IND",24],
+        ["CAF",93],["COD",36],["CZE",77],["CYP",65],["CXR",14],["CRI",31],
+        ["CUW",67],["CPV",63],["CUB",40],["SWZ",58],["SYR",96],["SXM",31]];
+    // Datamaps expect data in format:
+    // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},
+    //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }
+    var dataset = {};
+    // We need to colorize every country based on "numberOfWhatever"
+    // colors should be uniq for every value.
+    // For this purpose we create palette(using min/max series-value)
+    var onlyValues = series.map(function(obj){ return obj[1]; });
+    var minValue = Math.min.apply(null, onlyValues),
+            maxValue = Math.max.apply(null, onlyValues);
+    // create color palette function
+    // color can be whatever you wish
+    var paletteScale = d3.scale.linear()
+            .domain([minValue,maxValue])
+            .range(["#8BC34A","#F44336"]); // red color
+    function colorr(value)
+    {
+        col = null;
+        if(value<30)
+        {
+            col = "#4CAF50";
+        }
+        else if (value >=30 && value <=70)
+        {
+            col = "#FFC107";
+        }
+        
+        else
+        {
+            col = "#F44336";
+        }
+        return col;
+            
+    }
+    // fill dataset in appropriate format
+    series.forEach(function(item){ //
+        // item example value ["USA", 70]
+        var iso = item[0],
+                value = item[1];
+        dataset[iso] = { numberOfThings: value, fillColor: colorr(value) };
+    });
+    // render map
+    new Datamap({
+        element: document.getElementById('container1'),
+        projection: 'mercator', // big world map
+        // countries don't listed in dataset will be painted with this color
+        fills: { defaultFill: '#F5F5F5' },
+        data: dataset,
+        geographyConfig: {
+            borderColor: '#DEDEDE',
+            highlightBorderWidth: 2,
+            // don't change color on mouse hover
+            highlightFillColor: function(geo) {
+                return geo['fillColor'] || '#F5F5F5';
+            },
+            // only change border
+            highlightBorderColor: '#B7B7B7',
+            // show desired information in tooltip
+            popupTemplate: function(geo, data) {
+                // don't show tooltip if country don't present in dataset
+                if (!data) { return ; }
+                // tooltip content
+                return ['<div class="hoverinfo">',
+                    '<strong>', geo.properties.name, '</strong>',
+                    '<br>Count: <strong>', data.numberOfThings, '</strong>',
+                    '</div>'].join('');
+            }
+        }
+    });
+</script>
+
+
+	  
+</body>
