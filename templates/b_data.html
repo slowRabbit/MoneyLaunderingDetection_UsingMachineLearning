@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Data</title>
+<title>Visualization</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,6 +29,25 @@
 
 
 <style>
+
+tbody>tr>:nth-child(4){
+  color:#FFC107!important; 
+}
+
+tbody>tr>:nth-child(7){
+  color:#FFC107!important; 
+}
+
+tbody>tr>:nth-child(6){
+  color:#4CAF50!important; 
+}
+tbody>tr>:nth-child(8){
+  color:#4CAF50!important; 
+}
+tbody>tr>:nth-child(9){
+  color:#4CAF50!important; 
+}
+
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
@@ -132,6 +151,12 @@ color:#757575;
      </div>
   <div class="column"></div>
   <table class="w3-table-all w3-small" >
+
+    <colgroup>
+    <col span="3" style="background-color:red;">
+    <col span="1" style="background-color:red;">
+    </colgroup>
+
     <tr>   
     <th class="thh">Time</th>
     <th class="thh">Type</th>
@@ -143,23 +168,22 @@ color:#757575;
     <th class="thh">OldbalanceDest</th>
     <th class="thh">NewbalanceDest</th>
     <th class="thh">IsFraud</th>
-    <th class="thh">IsFlaggedFraud</th>
     </tr>
     
     
-<tr><td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td><td>0</td></tr>
-<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td><td>0</td></tr>
-<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td><td>0</td></tr>
-<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td><td>0</td></tr>
-<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
-<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td><td>0</td></tr>
+<tr><td>51</td><td>PAYMENT</td><td>9839.64</td><td>C1231006815</td><td>170136.0</td><td>160296.36</td><td>M1979787155</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>8</td><td>PAYMENT</td><td>1864.28</td><td>C1666544295</td><td>21249.0</td><td>19384.72</td><td>M2044282225</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>12</td><td>TRANSFER</td><td>181.0</td><td>C1305486145</td><td>181.0</td><td>0.0</td><td>C553264065</td><td>0.0</td><td>0.0</td><td>1</td></tr>
+<tr><td>25</td><td>CASH_OUT</td><td>181.0</td><td>C840083671</td><td>181.0</td><td>0.0</td><td>C38997010</td><td>21182.0</td><td>0.0</td><td>1</td></tr>
+<tr><td>29</td><td>PAYMENT</td><td>11668.14</td><td>C2048537720</td><td>41554.0</td><td>29885.86</td><td>M1230701703</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>56</td><td>PAYMENT</td><td>7817.71</td><td>C90045638</td><td>53860.0</td><td>46042.29</td><td>M573487274</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>68</td><td>PAYMENT</td><td>7107.77</td><td>C154988899</td><td>183195.0</td><td>176087.23</td><td>M408069119</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>78</td><td>PAYMENT</td><td>7861.64</td><td>C1912850431</td><td>176087.23</td><td>168225.59</td><td>M633326333</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>146</td><td>PAYMENT</td><td>4024.36</td><td>C1265012928</td><td>2671.0</td><td>0.0</td><td>M1176932104</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>246</td><td>DEBIT</td><td>5337.77</td><td>C712410124</td><td>41720.0</td><td>36382.23</td><td>C195600860</td><td>41898.0</td><td>40348.79</td><td>0</td></tr>
+<tr><td>380</td><td>DEBIT</td><td>9644.94</td><td>C1900366749</td><td>4465.0</td><td>0.0</td><td>C997608398</td><td>10845.0</td><td>157982.12</td><td>0</td></tr>
+<tr><td>428</td><td>PAYMENT</td><td>3099.97</td><td>C249177573</td><td>20771.0</td><td>17671.03</td><td>M2096539129</td><td>0.0</td><td>0.0</td><td>0</td></tr>
+<tr><td>523</td><td>PAYMENT</td><td>2560.74</td><td>C1648232591</td><td>5070.0</td><td>2509.26</td><td>M972865270</td><td>0.0</td><td>0.0</td><td>0</td></tr>
    
   </table>
 

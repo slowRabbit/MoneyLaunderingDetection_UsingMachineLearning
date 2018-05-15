@@ -36,7 +36,7 @@ def classifyOriginalDataSet():
     y_trainGlobal = []
     
     # Importing the dataset
-    dataset = pd.read_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/kaggleData.csv')
+    dataset = pd.read_csv('D:\Hackathons\CodeGrind17\Techfest April 17th\Datasets\kaggle\kaggleData.csv')
     dataset.drop('nameOrig', axis=1, inplace=True)
     dataset.drop('nameDest', axis=1, inplace=True)
     dataset.drop('isFlaggedFraud', axis=1, inplace=True)
@@ -150,4 +150,4 @@ def classifyLive(filePath):
     print(predicted)
 
 classifyOriginalDataSet()
-classifyLive('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/try1.csv')
+classifyLive('D:\Hackathons\CodeGrind17\Techfest April 17th\Datasets\kaggle\try1.csv')

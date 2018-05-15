@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import svm as sv
 import decisionTree as dt
 from RuleBased import RuleBasedAlertGeneration
-import newDataset as dataset
+#import newDataset as dataset
 import livedata as livedata
 import json
 import datetime
@@ -67,24 +67,25 @@ def postLiveDataforLiveDemo3DGraph():
     return "thank you"
     
 
-@app.route('/ml', methods  = ['GET'])
-def getMLData():
-        a = sv.retData()
-        return a
+#@app.route('/ml', methods  = ['GET'])
+#def getMLData():
+#        a = sv.retData()
+#        return a
         #return sv.retData()
 
-@app.route('/getdataML', methods  = ['GET'])
-def getGraphMLAnalysisData():
-        a = sv.retData()
-        return a
+#@app.route('/getdataML', methods  = ['GET'])
+#def getGraphMLAnalysisData():
+#        a = sv.retData()
+#        return a
     
-@app.route('/getdataRuleBased', methods  = ['GET'])
-def getGraphRuleBaedAnalysisData():
-        rl = RuleBasedAlertGeneration()
+#@app.route('/getdataRuleBased', methods  = ['GET'])
+#def getGraphRuleBaedAnalysisData():
+#        rl = RuleBasedAlertGeneration()
            
-        return rl.main() 
+#        return rl.main() 
 
 if __name__=="__main__"  :
-    app.run(port=9040, debug=True)# -*- coding: utf-8 -*-
+    print("server started !")
+    app.run(port=7040, debug=True)# -*- coding: utf-8 -*-
     #debug=True
 

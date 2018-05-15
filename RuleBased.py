@@ -19,7 +19,7 @@ class RuleBasedAlertGeneration:
         
         
         # file-input.py
-        f = open('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/data_for_rule_based_string.txt','r')
+        f = open('D:\Hackathons\CodeGrind17\Techfest April 17th\Datasets\data_for_rule_based_string.txt','r')
         message = f.read()
         #print(message)
     

@@ -43,7 +43,7 @@ from imblearn.metrics import classification_report_imbalanced
 random.seed(50)
 
 # Importing the dataset
-dataset = pd.read_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/kaggleData.csv')
+dataset = pd.read_csv('D:\Hackathons\CodeGrind17\Techfest April 17th\Datasets\kaggle\kaggleData.csv')
 dataset.drop('type', axis=1, inplace=True)
 dataset.drop('nameOrig', axis=1, inplace=True)
 dataset.drop('oldbalanceOrg', axis=1, inplace=True)

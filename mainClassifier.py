@@ -14,16 +14,11 @@ from imblearn.over_sampling import ADASYN
 from imblearn.under_sampling import ClusterCentroids
 from imblearn.over_sampling import RandomOverSampler
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn import datasets
-from sklearn.feature_selection import SelectFromModel
-from sklearn.metrics import accuracy_score
-
 
 random.seed(50)
 
 # Importing the dataset
-dataset = pd.read_csv('/media/cyris/Studies/Hackathons/CodeGrind17/Techfest April 17th/Datasets/kaggle/kaggleData.csv')
+dataset = pd.read_csv('D:\Hackathons\CodeGrind17\Techfest April 17th\Datasets\kaggle\kaggleData.csv')
 dataset.drop('nameOrig', axis=1, inplace=True)
 dataset.drop('nameDest', axis=1, inplace=True)
 dataset.drop('isFlaggedFraud', axis=1, inplace=True)
@@ -52,43 +47,32 @@ X = X[:, 1:]
 # Splitting the dataset into the Training set and Test set
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
-#X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
+X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
 
-#counts = np.unique(y_train, return_counts=True)
+counts = np.unique(y_train, return_counts=True)
 
-#sc = StandardScaler()
-#X_train = sc.fit_transform(X_train)
-#X_val = sc.transform(X_val)
-#X_test = sc.transform(X_test)
-#print(counts)
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_val = sc.transform(X_val)
+X_test = sc.transform(X_test)
+print(counts)
 
 
 # Apply the sampling
-#ada = ADASYN()
-#X_resampled, y_resampled = ada.fit_sample(X_train, y_train)
-#count = np.unique(y_resampled, return_counts=True)
+ada = ADASYN()
+X_resampled, y_resampled = ada.fit_sample(X_train, y_train)
+count = np.unique(y_resampled, return_counts=True)
 
 # Create a pipeline
 
-#pipeline4 = make_pipeline(ADASYN(),LinearSVC(random_state=1))
-#pipeline4.fit(X_train, y_train)
-#print(count)
+pipeline4 = make_pipeline(ADASYN(),LinearSVC(random_state=1))
+pipeline4.fit(X_train, y_train)
+print(count)
 
-#predicted=pipeline4.predict(X_test)
+predicted=pipeline4.predict(X_test)
+print (X_test.shape)
 
-feat_labels = ['step','type','amount','oldbalanceOrg','newbalanceOrig',
-               'oldbalanceDest','newbalanceDest']
-
-# Create a random forest classifier
-clf = RandomForestClassifier(n_estimators=1000, random_state=0, n_jobs=-1)
-
-# Train the classifier
-clf.fit(X_train, y_train)
-
-# Print the name and gini importance of each feature
-for feature in zip(feat_labels, clf.feature_importances_):
-    print(feature)
-
+from sklearn.metrics import accuracy_score
 
 #y_test, pipeline4.predict(X_test))
-#print("Accuracy :",accuracy_score(y_test, predicted))
+print("Accuracy :",accuracy_score(y_test, predicted))
